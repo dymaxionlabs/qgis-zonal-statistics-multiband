@@ -1,0 +1,4 @@
+*.pyc
+.noseids
+__pycache__
+*.swp
