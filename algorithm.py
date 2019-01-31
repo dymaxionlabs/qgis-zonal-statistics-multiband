@@ -114,10 +114,10 @@ class ZonalStatisticsMultibandAlgorithm(QgisAlgorithm):
                                                       QgsProcessing.TypeVectorPolygon))
 
     def name(self):
-        return 'zonalstatistics'
+        return 'zonalstatisticsmultiband'
 
     def displayName(self):
-        return self.tr('Zonal statistics')
+        return self.tr('Zonal statistics (multiband)')
 
     def prepareAlgorithm(self, parameters, context, feedback):
         self.columnPrefix = self.parameterAsString(parameters, self.COLUMN_PREFIX, context)
@@ -134,16 +134,19 @@ class ZonalStatisticsMultibandAlgorithm(QgisAlgorithm):
         self.raster_crs = rasterLayer.crs()
         self.raster_units_per_pixel_x = rasterLayer.rasterUnitsPerPixelX()
         self.raster_units_per_pixel_y = rasterLayer.rasterUnitsPerPixelY()
+        self.raster_band_count = rasterLayer.bandCount()
         return True
 
     def processAlgorithm(self, parameters, context, feedback):
-        zs = QgsZonalStatistics(self.vectorLayer,
-                                self.raster_interface,
-                                self.raster_crs,
-                                self.raster_units_per_pixel_x,
-                                self.raster_units_per_pixel_y,
-                                self.columnPrefix,
-                                1, # FIXME
-                                QgsZonalStatistics.Statistics(self.selectedStats))
-        zs.calculateStatistics(feedback)
+        for b in range(self.raster_band_count):
+            columnPrefix = '{}b{}_'.format(self.columnPrefix, b+1)
+            zs = QgsZonalStatistics(self.vectorLayer,
+                                    self.raster_interface,
+                                    self.raster_crs,
+                                    self.raster_units_per_pixel_x,
+                                    self.raster_units_per_pixel_y,
+                                    columnPrefix,
+                                    b + 1,
+                                    QgsZonalStatistics.Statistics(self.selectedStats))
+            zs.calculateStatistics(feedback)
         return {self.INPUT_VECTOR: self.vectorLayer}
