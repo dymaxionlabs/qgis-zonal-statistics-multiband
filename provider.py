@@ -31,7 +31,7 @@ __copyright__ = '(C) 2019 by Dymaxion Labs'
 __revision__ = '$Format:%H$'
 
 from qgis.core import QgsProcessingProvider
-from .ZonalStatisticsMultiband_algorithm import ZonalStatisticsMultibandAlgorithm
+from .algorithm import ZonalStatisticsMultibandAlgorithm
 
 
 class ZonalStatisticsMultibandProvider(QgsProcessingProvider):

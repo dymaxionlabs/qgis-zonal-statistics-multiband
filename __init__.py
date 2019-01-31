@@ -35,5 +35,5 @@ def classFactory(iface):  # pylint: disable=invalid-name
     :type iface: QgsInterface
     """
     #
-    from .ZonalStatisticsMultiband import ZonalStatisticsMultibandPlugin
+    from .zonal_statistics_multiband import ZonalStatisticsMultibandPlugin
     return ZonalStatisticsMultibandPlugin()

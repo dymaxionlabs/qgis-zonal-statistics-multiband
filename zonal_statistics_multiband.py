@@ -35,7 +35,7 @@ import sys
 import inspect
 
 from qgis.core import QgsProcessingAlgorithm, QgsApplication
-from .ZonalStatisticsMultiband_provider import ZonalStatisticsMultibandProvider
+from .provider import ZonalStatisticsMultibandProvider
 
 cmd_folder = os.path.split(inspect.getfile(inspect.currentframe()))[0]
 
