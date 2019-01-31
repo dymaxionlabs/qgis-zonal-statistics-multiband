@@ -139,6 +139,8 @@ class ZonalStatisticsMultibandAlgorithm(QgisAlgorithm):
 
     def processAlgorithm(self, parameters, context, feedback):
         for b in range(self.raster_band_count):
+            if feedback.isCanceled():
+                break
             columnPrefix = '{}b{}_'.format(self.columnPrefix, b+1)
             zs = QgsZonalStatistics(self.vectorLayer,
                                     self.raster_interface,
