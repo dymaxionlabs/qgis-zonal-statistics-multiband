@@ -2,3 +2,4 @@
 .noseids
 __pycache__
 *.swp
+help/build/

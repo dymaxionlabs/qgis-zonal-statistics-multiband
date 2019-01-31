@@ -1,26 +1,62 @@
-Plugin Builder Results
+# Zonal Statistics for Multiband Rasters - QGIS plugin
 
-Your plugin ZonalStatisticsMultiband was created in:
-    /home/munshkr/dym/qgis-zonal-statistics-multiband/zonalstatisticsmultiband
+QGIS 3 plugin that extends Zonal Statistics by running on all bands of a
+multiband raster in one go.
 
-Your QGIS plugin directory is located at:
-    /home/munshkr/.local/share/QGIS/QGIS3/profiles/default/python/plugins
+Useful with rasters of features extracted for supervised classification or
+hyperspectral raster images.
 
-What's Next:
 
-  * Copy the entire directory containing your new plugin to the QGIS plugin
-    directory
+## Install
 
-  * Run the tests (``make test``)
+### Add plugins repository
 
-  * Test the plugin by enabling it in the QGIS plugin manager
+To install this plugin, you need to add our QGIS Repository first.  Go to
+`Plugins -> Manage and Install Plugins`.
 
-  * Customize it by editing the implementation file: ``ZonalStatisticsMultiband.py``
+On the Settings tab, enable `Show also experimental plugins`, and add a
+repository named `Dymaxion Labs` with the following URL:
 
-  * You can use the Makefile to compile your Ui and resource files when
-    you make changes. This requires GNU make (gmake)
+```
+https://dymaxionlabs.github.io/qgis-repository/plugins.xml
+```
 
-For more information, see the PyQGIS Developer Cookbook at:
-http://www.qgis.org/pyqgis-cookbook/index.html
+After that, press `Reload all repositories` button to load our plugins index
+into QGIS.
 
-(C) 2011-2018 GeoApt LLC - geoapt.com
+
+### Install plugin
+
+Finally, go to `Plugins -> Manage and Install Plugins`, and in `All` or `Not
+Installed` tabs, search for *Zonal Statistics for Multiband Rasters*.  Click
+`Install plugin`.
+
+
+## Usage
+
+This is a *processing plugin*, you will have to enable the Processing Toolbox
+on QGIS to use it properly.
+
+
+## Issue tracker
+
+Please report any bugs and enhancement ideas using the GitHub issue tracker:
+
+  https://github.com/dymaxionlabs/qgis-zonal-statistics-multiband/issues
+
+Feel free to also ask questions on our [Gitter
+channel](https://gitter.im/dymaxionlabs/qgis-zonal-statistics-multiband), or by email.
+
+
+## Help wanted
+
+Any help in testing, development, documentation and other tasks is highly
+appreciated and useful to the project.
+
+For more details, see the file [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+## License
+
+Source code is released under a GNU GPL v3 license.  Please refer to
+[LICENSE.md](LICENSE.md) for more information.
